@@ -1,5 +1,3 @@
-package Bab4;
-
 public class Pair
 {
     int x, y;

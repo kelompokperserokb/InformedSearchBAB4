@@ -1,4 +1,3 @@
-package Bab4;
 public class Room
 {
     final Pair current;

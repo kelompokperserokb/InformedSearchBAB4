@@ -1,5 +1,3 @@
-package Bab4;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +28,7 @@ public class AbstractSearch
     public void createRooms()
     {
         this.createRooms(System.getProperty("user.dir")
-+"/src/Bab4/maze.txt");
++"/src/maze.txt");
         this.vmap = new char[(this.rooms.length * 2 + 1)][(this.rooms.length * 2 + 1)];
         this.visualize();
     }
@@ -134,6 +132,7 @@ public class AbstractSearch
                 {
                     if(rooms[i][j].w == rooms[i][j - 1].e)
                     {
+
                         if(!rooms[i][j].w)
                         {
                             vmap[i * 2 + 1][j * 2] = WV;
@@ -186,8 +185,8 @@ public class AbstractSearch
                 }
             }
         }
-        vmap[7 * 2 + 1][7 * 2 + 1] = '■';
-        vmap[startNode.x * 2 + 1][startNode.y * 2 + 1] = '●';
+        vmap[7 * 2 + 1][7 * 2 + 1] = '￭';
+        vmap[startNode.x * 2 + 1][startNode.y * 2 + 1] = '￮';
     }
 
     /*
@@ -198,7 +197,7 @@ public class AbstractSearch
      */
     public void printSolution(String alg, Room r)
     {
-        File file = new File(System.getProperty("user.dir")+"/src/Bab4/Output/" + alg + ".txt");
+        File file = new File(System.getProperty("user.dir")+"/src/Output/" + alg + ".txt");
         PrintWriter pw;
         try
         {
@@ -234,83 +233,83 @@ public class AbstractSearch
         {
             if((r.current.x + 1 == r.parent.x))
             {
-                vmap[(r.current.x + 1) * 2][(r.current.y) * 2 + 1] = '│';
+                vmap[(r.current.x + 1) * 2][(r.current.y) * 2 + 1] = 'l';
             }
             else if((r.current.x - 1 == r.parent.x))
             {
-                vmap[(r.current.x - 1) * 2 + 2][(r.current.y) * 2 + 1] = '│';
+                vmap[(r.current.x - 1) * 2 + 2][(r.current.y) * 2 + 1] = 'l';
             }
             else
             {
                 if((r.current.y + 1 == r.parent.y))
                 {
-                    vmap[(r.current.x) * 2 + 1][(r.current.y + 1) * 2] = '─';
+                    vmap[(r.current.x) * 2 + 1][(r.current.y + 1) * 2] = '-';
                 }
                 else if((r.current.y - 1 == r.parent.y))
                 {
-                    vmap[(r.current.x) * 2 + 1][(r.current.y - 1) * 2 + 2] = '─';
+                    vmap[(r.current.x) * 2 + 1][(r.current.y - 1) * 2 + 2] = '-';
                 }
             }
             if(!r.goal)
             {
-                if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '─')
+                if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '-')
                 {
-                    if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == '│')
+                    if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == 'l')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '┐';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2][r.current.y * 2 + 1] == '│')
+                    else if(vmap[r.current.x * 2][r.current.y * 2 + 1] == 'l')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '┘';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2 + 2] == '─')
+                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2 + 2] == '-')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '─';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '-';
                     }
                 }
-                else if(vmap[r.current.x * 2][r.current.y * 2 + 1] == '│')
+                else if(vmap[r.current.x * 2][r.current.y * 2 + 1] == 'l')
                 {
-                    if(vmap[r.current.x * 2 + 1][r.current.y * 2 + 2] == '─')
+                    if(vmap[r.current.x * 2 + 1][r.current.y * 2 + 2] == '-')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '└';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '─')
+                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '-')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '┘';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == '│')
+                    else if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == 'l')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '│';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = 'l';
                     }
                 }
-                else if(vmap[r.current.x * 2 + 1][r.current.y * 2 + 2] == '─')
+                else if(vmap[r.current.x * 2 + 1][r.current.y * 2 + 2] == '-')
                 {
-                    if(vmap[r.current.x * 2][r.current.y * 2 + 1] == '│')
+                    if(vmap[r.current.x * 2][r.current.y * 2 + 1] == 'l')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '└';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == '│')
+                    else if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == 'l')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '┌';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '─')
+                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '-')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '─';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '-';
                     }
                 }
-                else if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == '│')
+                else if(vmap[r.current.x * 2 + 2][r.current.y * 2 + 1] == 'l')
                 {
-                    if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '─')
+                    if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '-')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '┐';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '─')
+                    else if(vmap[r.current.x * 2 + 1][r.current.y * 2] == '-')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '┌';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '+';
                     }
-                    else if(vmap[r.current.x * 2][r.current.y * 2 + 1] == '│')
+                    else if(vmap[r.current.x * 2][r.current.y * 2 + 1] == 'l')
                     {
-                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = '│';
+                        vmap[r.current.x * 2 + 1][r.current.y * 2 + 1] = 'l';
                     }
                 }
 
@@ -325,7 +324,12 @@ public class AbstractSearch
         StringBuilder sb = new StringBuilder(vmap.length * vmap[0].length + vmap.length);
         for(final char[] row : vmap)
         {
-            sb.append(row);
+            for (char a : row) {
+                if (a == '\0') {
+                    sb.append(' ');
+                } else sb.append(a);
+            }
+
             sb.append('\n');
         }
         return sb.toString();
