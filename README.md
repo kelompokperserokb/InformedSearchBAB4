@@ -12,8 +12,8 @@ Clone this source to your src folder IDE.
 
 For NetBeans IDE
 
-.../NetBeansProjects/[ProjectName]/src
+   .../NetBeansProjects/[ProjectName]/src
 
 For Intellij IDEA 
 
-.../[ProjectName]/src
+   .../[ProjectName]/src
