@@ -10,8 +10,10 @@ Kelompok Kecerdasan Buatan
 
 Clone this source to your src folder IDE.
 
-- For NetBeans IDE
-   .../NetBeansProjects/[ProjectName]/src
+For NetBeans IDE
 
-- For Intellij IDEA 
-   .../[ProjectName]/src
+.../NetBeansProjects/[ProjectName]/src
+
+For Intellij IDEA 
+
+.../[ProjectName]/src
