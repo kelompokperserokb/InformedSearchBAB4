@@ -10,6 +10,7 @@ import java.util.List;
 public class AbstractSearch
 {
     protected Pair startNode;
+    protected Pair finalNode;
     protected Room[][] rooms = new Room[8][8];
     protected List<Room> visitedList = new ArrayList<Room>();
     private char[][] vmap;
@@ -62,7 +63,7 @@ public class AbstractSearch
         {
             e.printStackTrace();
         }
-        rooms[7][7].goal = true;
+        rooms[finalNode.x][finalNode.y].goal = true;
     }
 
     private void visualize()
@@ -185,7 +186,7 @@ public class AbstractSearch
                 }
             }
         }
-        vmap[7 * 2 + 1][7 * 2 + 1] = '￭';
+        vmap[finalNode.x * 2 + 1][finalNode.y * 2 + 1] = '￭';
         vmap[startNode.x * 2 + 1][startNode.y * 2 + 1] = '￮';
     }
 

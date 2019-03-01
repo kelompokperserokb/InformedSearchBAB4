@@ -5,9 +5,10 @@ import java.util.List;
 
 public class AStar extends AbstractSearch
 {
-    public AStar(Pair startNode)
+    public AStar(Pair startNode, Pair finalNode)
     {
         this.startNode = startNode;
+        this.finalNode = finalNode;
         super.createRooms();
         System.out.println(super.visualizeMap());
     }
