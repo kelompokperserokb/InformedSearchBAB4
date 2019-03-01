@@ -17,3 +17,6 @@ For NetBeans IDE
 For Intellij IDEA 
 
    .../[ProjectName]/src
+
+
+The Output is using special character, so there will be a different output from another device. The example output is in Screenshot folder. Tested from ASUS X455YA, NetBeans tested and Intellij IDEA tested.
