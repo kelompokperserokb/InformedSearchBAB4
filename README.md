@@ -1,6 +1,6 @@
 # InformedSearchBAB4
 
-Kelompok Kecerdasan Buatan
+Artificial Intelligence Team
 
 - Afgani Fajar Rizky [Programmer]
 - Bayu Reza Gunawan [Programmer]
