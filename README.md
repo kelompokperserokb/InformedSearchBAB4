@@ -1,6 +1,6 @@
 # InformedSearchBAB4
 
-Artificial Intelligence Team
+Artificial Intelligence Team - Class E
 
 - Afgani Fajar Rizky [Programmer]
 - Bayu Reza Gunawan [Programmer]
